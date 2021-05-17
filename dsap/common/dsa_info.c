@@ -44,7 +44,7 @@ edb_info_free (struct edb_info *edb) {
 	free ((char *) edb);
 }
 
-static struct edb_info *
+struct edb_info *
 edb_info_cpy (struct edb_info *a) {
 	struct edb_info * result;
 
@@ -139,7 +139,7 @@ int format;
 }
 
 
-static struct edb_info *
+struct edb_info *
 str2update (char *str) {
 	char * ptr;
 	char * save,val;

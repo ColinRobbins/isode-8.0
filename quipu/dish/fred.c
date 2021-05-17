@@ -363,7 +363,7 @@ free_filter:
 
 /*  */
 
-static struct dn_seq *
+struct dn_seq *
 dm2dn_seq (char *dm) {
 	char *dp;
 
@@ -379,7 +379,7 @@ dm2dn_seq (char *dm) {
 
 /*  */
 
-static struct dn_seq *dm2dn_seq_aux (dm, dn, dlist)
+struct dn_seq *dm2dn_seq_aux (dm, dn, dlist)
 char   *dm;
 DN	dn;
 struct dn_seq *dlist;
@@ -527,7 +527,7 @@ do_expand (int n, char **vec) {
 
 /*  */
 
-static struct dn_seq *expand_full (dn, complete)
+struct dn_seq *expand_full (dn, complete)
 DN	dn;
 int    *complete;
 {
@@ -598,7 +598,7 @@ int    *complete;
 
 /*  */
 
-static struct dn_seq *expand_partial (dn, complete)
+struct dn_seq *expand_partial (dn, complete)
 DN	dn;
 int    *complete;
 {
@@ -1890,7 +1890,7 @@ fred_init (void) {
 
 /*  */
 
-static  Entry fredentry (adn, islong)
+Entry fredentry (adn, islong)
 DN	adn;
 char	islong;
 {

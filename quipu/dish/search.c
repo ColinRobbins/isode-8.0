@@ -390,7 +390,7 @@ call_search (int argc, char **argv) {
 	filter_free (search_arg.sra_filter);
 }
 
-static	int  csr_compar (a, b)
+int  csr_compar (a, b)
 EntryInfo **a,
 		  **b;
 {

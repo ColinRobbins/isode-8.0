@@ -34,7 +34,7 @@ static char *rcsid = "$Header: /xtel/isode/isode/dsap/common/RCS/acl.c,v 9.0 199
 
 extern char dsa_mode;
 
-static struct acl_info * defaultacl = (struct acl_info *) NULL;
+struct acl_info * defaultacl = (struct acl_info *) NULL;
 
 static acl_attr_free ();
 void acl_info_free ();
@@ -44,7 +44,7 @@ int acl_info_cmp ();
 static int acl_info_comp_cmp ();
 static struct acl * str2acl_aux ();
 
-static struct acl * acl_cpy (struct acl *aclptr);
+struct acl * acl_cpy (struct acl *aclptr);
 static struct acl_attr * acl_attr_cpy (struct acl_attr *aclptr, struct acl_info *dflt);
 
 static
@@ -276,7 +276,7 @@ acl_info_new (int x, int y, struct dn_seq *z) {
 	return (ptr);
 }
 
-static struct acl * acl_cpy (struct acl *aclptr) {
+struct acl * acl_cpy (struct acl *aclptr) {
 	struct acl * ptr;
 
 	ptr = (struct acl *) smalloc (sizeof (struct acl));
@@ -307,7 +307,7 @@ PE pe;
 
 }
 
-static struct acl_attr * acl_attr_cpy (struct acl_attr *aclptr, struct acl_info *dflt) {
+struct acl_attr * acl_attr_cpy (struct acl_attr *aclptr, struct acl_info *dflt) {
 	struct acl_attr * ptr;
 	struct acl_attr * ptr2;
 	struct acl_attr * result = NULLACL_ATTR;
@@ -326,7 +326,7 @@ static struct acl_attr * acl_attr_cpy (struct acl_attr *aclptr, struct acl_info 
 }
 
 
-static struct acl_info * acl_info_cpy (struct acl_info *aclptr) {
+struct acl_info * acl_info_cpy (struct acl_info *aclptr) {
 	struct acl_info * ptr;
 	struct acl_info * ptr2;
 	struct acl_info * result = NULLACL_INFO;
@@ -819,7 +819,7 @@ str2acl_aux (char *str, struct acl *the_acl) {
 	return (the_acl);
 }
 
-static struct acl *
+struct acl *
 str2acl (char *str) {
 	struct acl * the_acl;
 

@@ -79,6 +79,7 @@ main (int argc, char **argv) {
 
 	dsap_security = use_serv_X509();
 	use_sig_md2withrsa();
+	osisecinit(&argc,&argv, 0);
 
 #else  /* OSISEC */
 
@@ -87,12 +88,10 @@ main (int argc, char **argv) {
 
 #endif /* OSISEC */
 
-	osisecinit(&argc,&argv, 0);
-
 	dish_init (argc,argv);
 
 #ifdef USE_PP
-	pp_quipu_run ();
+	#pp_quipu_run ();
 #endif
 
 #ifdef DONT_USE_PP_ANYMORE

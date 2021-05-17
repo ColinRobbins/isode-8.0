@@ -74,7 +74,7 @@ CFILES  =       acl.c attrv.c ca.c \
 		cstrings.c service.c security.c cilist.c policy.c \
 		ds_ext.c ap.c turbo_avl.c turbo_index.c \
 		attribute.c docstore.c qos.c attr_sntx.c \
-		photo_dec.c photo_build.c photo_util.c photo_stub.c \
+		photo_dec.c photo_build.c photo_util.c \
 		dsa_control.c osisec-int.c \
 		searchacl.c authpolicy.c
 
@@ -105,7 +105,7 @@ OFILES  =       acl.o attrv.o ca.o \
 		cstrings.o service.o security.o cilist.o policy.o \
 		ds_ext.o ap.o turbo_avl.o turbo_index.o \
 		attribute.o docstore.o qos.o attr_sntx.o \
-		photo_dec.o photo_build.o photo_util.o photo_stub.o \
+		photo_dec.o photo_build.o photo_util.o  \
 		dsa_control.o osisec-int.o \
 		searchacl.o authpolicy.o
 

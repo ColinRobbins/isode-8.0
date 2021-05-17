@@ -26,7 +26,7 @@ static char *rcsid = "$Header: /xtel/isode/isode/quipu/RCS/dsa.c,v 9.0 1992/06/1
 
 #include <signal.h>
 #include <stdio.h>
-#include <varargs.h>
+#include <stdarg.h>
 #include "quipu/util.h"
 #include <sys/stat.h>
 #include "sys.file.h"
@@ -48,7 +48,7 @@ static char *rcsid = "$Header: /xtel/isode/isode/quipu/RCS/dsa.c,v 9.0 1992/06/1
 #endif	/* USE_PP */
 
 #ifdef DEBUG
-#if (!defined(mips) && !defined(ultrix))
+#if (!defined(mips) && !defined(ultrix) && !defined(LINUX))
 /* Use sbrk() to trace memory growth - does not work on Ultrix! */
 #define SBRK_DEBUG
 #endif
@@ -76,7 +76,8 @@ void   Remove_openCall_attribute() ;
 
 static  char *myname;
 
-void    adios (), advise ();
+void    adios (char * what, ...);
+void    advise (int code, ...);
 void    mk_dsa_tmp_dir();
 static  envinit (), setdsauid();
 SFD attempt_restart();
@@ -627,13 +628,13 @@ fork_ok:
 	/* 	ERRORS */
 
 #ifndef	lint
-	void    adios (va_alist)
-	va_dcl {
+	void    adios (char * what, ...)
+	{
 		va_list ap;
 
-		va_start (ap);
+		va_start (ap, what);
 
-		_ll_log (log_dsap, LLOG_FATAL, ap);
+		_ll_log (log_dsap, LLOG_FATAL, what, ap);
 
 		va_end (ap);
 
@@ -654,12 +655,11 @@ fork_ok:
 #endif
 
 #ifndef	lint
-	void    advise (va_alist)
-	va_dcl {
-		int     code;
+	void    advise (int code, ...)
+	{
 		va_list ap;
 
-		va_start (ap);
+		va_start (ap, code);
 
 		code = va_arg (ap, int);
 
@@ -888,7 +888,7 @@ fork_ok:
 
 
 
-	static	osisecinit(argc, argv, fn)
+	osisecinit(argc, argv, fn)
 	int             *argc;
 	char          ***argv;
 	int	fn;

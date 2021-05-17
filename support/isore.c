@@ -73,7 +73,7 @@ main (int argc, char **argv, char **envp) {
 			break;
 
 		default:
-			kill (ppid, SIGUNUSED); //FIXME SIGEMT);
+			kill (ppid, 31); //FIXME SIGEMT);
 			sigpause (0);
 			break;
 		}

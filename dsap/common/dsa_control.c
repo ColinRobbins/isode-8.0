@@ -158,7 +158,7 @@ int format;
 	}
 }
 
-static struct dsa_control *
+struct dsa_control *
 dsa_control_cpy (struct dsa_control *dsa_c_ptr) {
 	struct dsa_control * new_item = (struct dsa_control *) malloc (sizeof (struct dsa_control)) ;
 

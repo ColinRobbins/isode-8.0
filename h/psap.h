@@ -566,7 +566,7 @@ char   *bitstr2strb ();
 
 extern char PY_pepy[];
 
-static void	PY_advise (char*what, ...);
+static  void	PY_advise (char*what, ...);
 int	PY_pp ();
 
 int	testdebug ();

@@ -41,7 +41,7 @@ tree_struct_free (struct tree_struct *ptr) {
 }
 
 
-static struct tree_struct *
+struct tree_struct *
 	tree_struct_cpy (struct tree_struct *a) {
 	struct tree_struct * result;
 
@@ -72,7 +72,7 @@ int format;
 }
 
 
-static struct tree_struct *
+struct tree_struct *
 str2schema (char *str) {
 	struct tree_struct * ts;
 	objectclass * str2oc();

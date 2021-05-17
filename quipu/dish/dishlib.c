@@ -29,7 +29,7 @@ static char *rcsid = "$Header: /xtel/isode/isode/quipu/dish/RCS/dishlib.c,v 9.0 
 #include <signal.h>
 #include "quipu/util.h"
 #include "quipu/entry.h"
-#include <varargs.h>
+#include <stdarg.h>
 
 #ifdef	SOCKETS
 #include "internet.h"
@@ -240,6 +240,7 @@ dish_init (int argc, char **argv) {
 #endif
 	log_dsap -> ll_stat &= ~LLOGCRT;
 	dsap_init (&i, &vecptr);
+
 
 #ifdef OSISEC
 	osisecinit((int*)0, (char***)0, 1);
@@ -626,15 +627,12 @@ int sd;
 	longjmp (dish_env,2);
 }
 
-void    advise (va_alist)
-va_dcl {
-	int     code;
+void    advise (int code, ...)
+{
 	va_list ap;
 	extern LLog    *log_dsap;
 
-	va_start (ap);
-
-	code = va_arg (ap, int);
+	va_start (ap, code);
 
 	_ll_log (log_dsap, code, ap);
 

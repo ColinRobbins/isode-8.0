@@ -1,4 +1,4 @@
-#ifdef	FIXME
+#ifdef FIXME
 /* used by permission */
 
 /*
@@ -123,3 +123,4 @@ caddr_t d1, d2;
 				  (*(struct dirent **)d2)->d_name));
 }
 #endif
+

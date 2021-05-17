@@ -37,8 +37,8 @@ OTHERS	=	turbo
 
 # Remove these two definitions if you do not want the QUIPU optimised malloc.
 # Performace may suffer if you do!
-MALLOC_C =	malloc.c
-MALLOC_O =	malloc.o
+#MALLOC_C =	malloc.c
+#MALLOC_O =	malloc.o
 #DEBUGLIB  =	/xtel/user/cjr/src/mprof/libc_mp.a
 
 ##############################################################

@@ -80,7 +80,7 @@
 #endif
 
 # define PDU_DUMP
-# define QUIPU_MALLOC
+/*  # define QUIPU_MALLOC  */
 # define TURBO_INDEX
 # define SOUNDEX_PREFIX
 # define HAVE_PROTECTED

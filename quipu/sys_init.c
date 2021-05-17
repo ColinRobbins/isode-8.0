@@ -30,7 +30,7 @@ static char *rcsid = "$Header: /xtel/isode/isode/quipu/RCS/sys_init.c,v 9.0 1992
 #include "quipu/config.h"
 #include "tailor.h"
 #include "logger.h"
-#include "usr.dirent.h"
+#include "dirent.h"
 #include <sys/stat.h>
 
 extern char *dsaoidtable;
@@ -41,7 +41,8 @@ extern time_t slave_timeout;
 extern char * edbtmp_path;
 extern char * treedir;
 
-
+#include <errno.h>
+extern int errno;
 
 static int rmFiles();
 
@@ -105,13 +106,13 @@ mk_dsa_tmp_dir (void) {
 			&& ((statbuf.st_mode & S_IFMT) == S_IFDIR)) {
 		/* tmpdir exists - clean it */
 		struct dirent **namelist;
-		_scandir(edbtmp_buf, &namelist, rmFiles, NULLIFP);
+		scandir(edbtmp_buf, &namelist, rmFiles, NULLIFP);
 		if (namelist)
 			free((char *) namelist);
 
 	} else if (mkdir (edbtmp_buf,0700) != 0) {
-		sprintf (err_buf,"Can't create tmp directory: %s (%d)",
-				 edbtmp_path,errno);
+		sprintf (err_buf,"Can't create tmp directory: %s (%s)",
+				 edbtmp_path, errno);
 		fatal (-43,err_buf);
 	}
 }
