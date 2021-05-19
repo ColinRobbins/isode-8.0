@@ -33,11 +33,12 @@ main (int argc, char **argv) {
 	while ( --argc > 0 ) {
 		++argv;
 
-		while ( (dp = readdir( dirp )) != NULL )
+		while ( (dp = readdir( dirp )) != NULL ) {
 			if ( strcmp( dp->d_name, *argv ) == 0 ) {
 				printf( "\"%s\" found.\n", *argv );
 				break;
 			}
+		}
 
 		if ( dp == NULL ) {
 			printf( "\"%s\" not found.\n", *argv );

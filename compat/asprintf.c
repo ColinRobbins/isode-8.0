@@ -57,7 +57,7 @@ void	_asprintf (char*bp, char*what, char* fmt, va_list ap) {	/* fmt, args, ... *
 
 	*bp = NULL;
 
-	if (fmt) {
+	if (fmt && (strlen(fmt)>1)) {
 #ifndef	VSPRINTF
 		struct _iobuf iob;
 #endif
@@ -77,9 +77,9 @@ void	_asprintf (char*bp, char*what, char* fmt, va_list ap) {	/* fmt, args, ... *
 		_doprnt (fmt, ap, &iob);
 		putc (NULL, &iob);
 #else
-		vsprintf (bp, fmt, ap);
+        	vsprintf (bp, fmt, ap);
 #endif
-		bp += strlen (bp);
+        	bp += strlen (bp);
 
 	}
 

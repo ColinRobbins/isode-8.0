@@ -1,0 +1,28 @@
+objectClass= top & applicationEntity & dSA & quipuDSA
+cn= Toucan &\
+	Jaguar
+l= FI
+o= Finnish University and Research Network Project
+ou= Tampere University of Technology
+description= The Jaguar DSA. Located at Tampere Univ of Technology, Finland. &\
+	A big cat.
+presentationAddress= '0101'H/TELEX+00728722+RFC-1006+03+127.0.0.1+17003
+supportedApplicationContext= X500DSP & X500DAP & InternetDSP & quipuDSP
+userPassword= {CRYPT}IBDVBQ
+manager= c=FI@cn=Directory Manager
+lastModifiedTime= 900509101546Z
+lastModifiedBy= c=GB@o=University College London@ou=Computer Science@cn=incads
+acl= group # c=FI@cn=Directory Manager # write # entry &\
+	others # read # entry &\
+	group # c=FI@cn=Directory Manager # write # default &\
+	others # read # default &\
+	others # compare # attributes # accessControlList$userPassword &\
+	group # c=FI@cn=Directory Manager # write # attributes # accessControlList$userPassword
+eDBinfo= #cn=Giant tortoise#c=FI@cn=Rhea$c=FI@cn=Ilves &\
+	c=SE#cn=Hummingbird# &\
+	c=NO#cn=Electric Eel# &\
+	c=IS#cn=Elephant Seal# &\
+	c=FI##c=FI@cn=Ilves &\
+	c=FI##cn=Axolotl$cn=Giant Tortoise$cn=Alpaca$cn=Fruit Bat$cn=Giant Anteater$c=FI@cn=Rhea$cn=Electric Eel$cn=Hummingbird$cn=Elephant Seal &\
+	c=DK#cn=Axolotl#
+quipuVersion= quipu 8.0 \2317 (Mercury) of Wed 19 May 22:22:39 BST 2021

@@ -77,7 +77,7 @@ OFILES	=	sys_init.o sys_tai.o tai_args.o tai_init.o control.o \
 		turbo_disk.o turbo_debug.o turbo_search.o \
 		checkacl.o $(MALLOC_O) 
 
-all:            quipu sub-all
+all:            quipu sub-all 
 inst-all:       inst-quipu tailor manuals sub-inst-all
 install:        inst-all clean sub-install
 lint:           l-quipu sub-lint l-testedb
@@ -107,11 +107,17 @@ $(SBINDIR)ros.quipu:   xquipu
 		-@ls -gls $@
 		-@echo ""
 
-quipu:          xquipu 
+quipu:          xquipu xquipu-static 
 
 xquipu:		$(LIBES) $(OFILES) quipuvrsn.o
 		$(LDCC) $(LDFLAGS) -o $@ $(OFILES) quipuvrsn.o \
 		$(LIBDSAP) $(LIBISODE) $(LSOCKET) $(LIBGDBM) $(DEBUGLIB)
+
+xquipu-static:		$(LIBES) $(OFILES) quipuvrsn.o
+		$(LDCC) --static $(LDFLAGS) -o $@ $(OFILES) quipuvrsn.o \
+		$(LIBDSAP) $(LIBISODE) $(LSOCKET) $(LIBGDBM) $(DEBUGLIB)
+		cp xquipu-static docker
+		docker build --tag quipu docker
 
 l-quipu:;	$(LINT) $(LFLAGS) $(MAIN) $(CFILES) $(LLIBS) \
 			| grep -v "warning: possible pointer alignment problem"
@@ -172,7 +178,8 @@ $(ETCDIR)quiputailor: quiputailor
 
 clean:		sub-clean
 		rm -f *.ph *.o *.a a.out _* testedb x* z* *.orig core \
-			quipuvrsn.c
+			quipuvrsn.c \
+			docker/xquipu-static
 
 grind:		sub-grind
 		iprint Makefile quiputailor

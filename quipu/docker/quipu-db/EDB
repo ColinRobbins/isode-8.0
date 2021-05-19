@@ -292,7 +292,7 @@ lastModifiedTime= 900509101546Z
 manager= c=FI@cn=Directory Manager
 userPassword= {CRYPT}IBDVBQ
 supportedApplicationContext= quipuDSP & X500DSP & X500DAP
-presentationAddress= '0101'H/TELEX+00728722+RFC-1006+03+127.0.0.1+17003
+presentationAddress= '0101'H/TELEX+00728722+RFC-1006+03+0.0.0.0+17003
 description= The Jaguar DSA. Located at Tampere Univ of Technology, Finland.
 description= A big cat.
 ou= Tampere University of Technology

@@ -30,8 +30,11 @@ static char *rcsid = "$Header: /xtel/isode/isode/quipu/RCS/sys_init.c,v 9.0 1992
 #include "quipu/config.h"
 #include "tailor.h"
 #include "logger.h"
-#include "dirent.h"
+#include "usr.dirent.h"
 #include <sys/stat.h>
+
+//FIXME
+#undef scandir
 
 extern char *dsaoidtable;
 extern LLog * log_dsap;
