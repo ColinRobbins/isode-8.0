@@ -469,6 +469,7 @@ call_bind (int argc, char **argv) {
 
 	binderr.dbe_value = 0;
 	bind_alarm ();
+
 	if (secure_ds_bind (&bindarg, &binderr, &bindresult) != OK) {
 		signal (SIGALRM, SIG_IGN);
 		if (binderr.dbe_value == 0)
@@ -875,7 +876,7 @@ int sig;
 		LLOG (log_dsap, LLOG_EXCEPTIONS, ("Dish quitting - signal %d",sig));
 		exit (0);
 	default:
-		LLOG (log_dsap, LLOG_FATAL, ("Dish problem - signal %d",sig));
+		LLOG (log_dsap, LLOG_EXCEPTIONS, ("Dish problem - signal %d",sig));
 		signal (sig, SIG_DFL); /* to stop recursion */
 		abort ();
 	}

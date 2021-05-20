@@ -212,7 +212,7 @@ ready:
 
 	bzero ((char *) acc, sizeof *acc);
 	bzero ((char *) pa, sizeof *pa);
-
+ 
 	result = PAsynConnRequest (callingaddr, calledaddr,
 							   ctxlist, defctxname, prequirements, srequirements, isn,
 							   settings, ref, &pe, 1, qos, pc, pi, async);

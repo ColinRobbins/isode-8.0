@@ -45,12 +45,16 @@ int	dsaplose (struct DSAPindication *di, ...) {
 			result;
 
 	va_list ap;
+	char * what;
+	char * fmt;
 
 	va_start (ap, di);
 
 	reason = va_arg (ap, int);
+	what = va_arg (ap, char *);
+	fmt = va_arg (ap, char *);
 
-	result = _dsaplose (di, reason, ap);
+	result = _dsaplose (di, reason, what, fmt, ap);
 
 	va_end (ap);
 
@@ -68,7 +72,7 @@ dsaplose (struct DSAPindication *di, int reason, char *what, char *fmt) {
 /*  */
 
 #ifndef	lint
-static int _dsaplose (  struct DSAPindication *di, int reason, va_list ap) { /* what, fmt, args ... */
+static int _dsaplose (  struct DSAPindication *di, int reason, char *what, char *fmt, va_list ap) { /* what, fmt, args ... */
 	char  *bp;
 	char    buffer[BUFSIZ];
 	struct DSAPabort	* da;
@@ -79,7 +83,7 @@ static int _dsaplose (  struct DSAPindication *di, int reason, va_list ap) { /* 
 		da = &(di->di_abort);
 		da->da_reason = reason;
 
-		asprintf (bp = buffer, ap);
+		_asprintf (bp = buffer, what, fmt, ap);
 		bp += strlen (bp);
 
 		copyDSAPdata (buffer, bp - buffer, da);
@@ -138,7 +142,7 @@ _dsapreject (  /* what, fmt, args ... */
 		dp->dp_id = id;
 		dp->dp_reason = reason;
 
-		asprintf (bp = buffer, ap);
+		_asprintf (bp = buffer, ap);
 		bp += strlen (bp);
 
 		copyDSAPdata (buffer, bp - buffer, dp);

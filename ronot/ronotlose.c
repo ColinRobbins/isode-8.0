@@ -44,12 +44,16 @@ int	ronotlose (struct RoNOTindication*rni, ...) {
 	int	    reason,
 			result;
 	va_list ap;
+	char * what;
+	char * fmt;
 
 	va_start (ap, rni);
 
 	reason = va_arg (ap, int);
+	what = va_arg (ap, char *);
+	fmt = va_arg (ap, char *);
 
-	result = _ronotlose (rni, reason, ap);
+	result = _ronotlose (rni, reason, what, fmt, ap);
 
 	va_end (ap);
 
@@ -71,11 +75,11 @@ static int
 _ronotlose (  /* what, fmt, args ... */
 	struct RoNOTindication *rni,
 	int reason,
+	char  *what,
+	char  *fmt,
 	va_list ap
 ) {
 	char  *bp;
-	char  *what;
-	char  *fmt;
 	char    buffer[BUFSIZ];
 
 	if (rni) {

@@ -143,7 +143,7 @@ _rtsaplose (  /* what, fmt, args ... */
 		rti -> rti_type = RTI_ABORT;
 		rta = &rti -> rti_abort;
 
-		asprintf (bp = buffer, what, fmt, ap);
+		_asprintf (bp = buffer, what, fmt, ap);
 		bp += strlen (bp);
 
 		rta -> rta_peer = 0;

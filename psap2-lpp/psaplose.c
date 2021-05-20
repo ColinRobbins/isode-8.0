@@ -189,7 +189,7 @@ va_list	ap;
 		pi -> pi_type = PI_ABORT;
 		pa = &pi -> pi_abort;
 
-		asprintf (bp = buffer, ap);
+		_asprintf (bp = buffer, ap);
 		bp += strlen (bp);
 
 		pa -> pa_peer = 0;

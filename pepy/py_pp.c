@@ -193,7 +193,7 @@ static void  _advise (char*what, ...) {
 
 	va_start (ap, what);
 
-	asprintf (buffer, what, ap);
+	_asprintf (buffer, what, ap);
 
 	fflush (stdout);
 

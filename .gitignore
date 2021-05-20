@@ -133,5 +133,8 @@ RemoteSystemsTempFiles/
 ###################
 *.bak
 
+DSA.real
+PID
+
 
 

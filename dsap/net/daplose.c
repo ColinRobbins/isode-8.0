@@ -45,12 +45,16 @@ int	daplose (struct DAPindication *di, ...) {
 			result;
 
 	va_list ap;
+	char * what;
+	char * fmt;
 
 	va_start (ap, di);
 
 	reason = va_arg (ap, int);
+	what = va_arg (ap, char *);
+	fmt = va_arg (ap, char *);
 
-	result = _daplose (di, reason, ap);
+	result = _daplose (di, reason, what, fmt, ap);
 
 	va_end (ap);
 
@@ -72,6 +76,8 @@ static int
 _daplose (  /* what, fmt, args ... */
 	struct DAPindication *di,
 	int reason,
+	char * what,
+	char * fmt,
 	va_list ap
 ) {
 	char  *bp;
@@ -84,7 +90,7 @@ _daplose (  /* what, fmt, args ... */
 		da = &(di->di_abort);
 		da->da_reason = reason;
 
-		asprintf (bp = buffer, ap);
+		_asprintf (bp = buffer, what, fmt, ap);
 		bp += strlen (bp);
 
 		copyDAPdata (buffer, bp - buffer, da);
@@ -143,7 +149,7 @@ _dapreject (  /* what, fmt, args ... */
 		dp->dp_id = id;
 		dp->dp_reason = reason;
 
-		asprintf (bp = buffer, ap);
+		_asprintf (bp = buffer, ap);
 		bp += strlen (bp);
 
 		copyDAPdata (buffer, bp - buffer, dp);

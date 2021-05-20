@@ -339,8 +339,10 @@ no_mem:
 			return result;
 		}
 	}
-	if ((result = PAsynRetryAux (pb, sc, si, pc, pi)) == DONE && !async)
+
+	if ((result = PAsynRetryAux (pb, sc, si, pc, pi)) == DONE && !async) {
 		result = OK;
+	}
 	return result;
 
 out2:
