@@ -233,8 +233,11 @@ ps_printf (PS ps, ...)
 
 	{
 		char buffer [8192]; 	/* How big should this go !!! */
+		char * fmt;
 
-		_asprintf (buffer,NULLCP,ap);
+		fmt = va_arg (ap, char *);
+
+		_asprintf (buffer,NULLCP, fmt, ap);
 
 		ps_print (ps,buffer);
 	}

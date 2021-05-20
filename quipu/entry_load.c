@@ -64,6 +64,7 @@ static
 dir_exists (char *fname) {
 	struct stat buf;
 
+	printf ("dir exists %s\n",fname);
 	if (stat (fname,&buf) != 0) {
 		if (errno != ENOENT)
 			DLOG (log_dsap,LLOG_DEBUG,("File %s will not stat - %d",fname,errno));
@@ -238,6 +239,7 @@ rdn2filename (PS aps, RDN rdn, int make) {
 	sprintf (mapbuf, "%sEDB.map",aps->ps_base);
 
 	rdn_print (aps,rdn,DIROUT);
+	
 	*aps->ps_ptr = 0;
 
 	if (fileexists (mapbuf) && read_mapped_rdn (aps,start,mapbuf)) {

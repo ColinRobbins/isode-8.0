@@ -43,8 +43,9 @@ int format;
 	last_at = x;
 	avs_count = 1;
 
-	if (format == READOUT)
+	if (format == READOUT) {
 		ps_printf (ps,"%s",attr2name (x,oidformat));
-	else
+	} else {
 		ps_printf (ps,"%s",attr2name_aux (x));
+	}
 }
